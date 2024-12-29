@@ -9,7 +9,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(1920, 1080, WEBGL);
+    createCanvas(windowWidth, windowHeight, WEBGL);
     pixelDensity(1);
     angleMode(DEGREES);
     rectMode(CENTER);
@@ -38,7 +38,7 @@ function draw() {
             var b = map(n, 0, 500, 100, 150) + cos(frameCount / 2) * 100;
             var r = map(n, 0, 500, 200, 150) - sin(frameCount / 4) * 50;
 
-            stroke(r,g,b);
+            stroke(r, g, b);
             vertex(x, y, z);
         }
         endShape(CLOSE);
@@ -67,4 +67,8 @@ function mousePressed() {
         audioPlayed = true; 
     }
     rotationAngle = random(-180, 180);
+function windowResized() {
+    // Resize canvas when the window size changes
+    resizeCanvas(windowWidth, windowHeight);
+}
 }
